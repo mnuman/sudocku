@@ -29,7 +29,7 @@ The program supports two different endpoints which are document in the FastAPI d
 ### Sample request
 Below is the sample payload for a (valid) request to the regular endpoint, /sudoku:
 
-```json
+```JSON
 {
     "sudoku": [
         " ,9, , , , ,1, , ",
@@ -47,7 +47,7 @@ Below is the sample payload for a (valid) request to the regular endpoint, /sudo
 
 In this case, the API responds with:
 
-```json
+```JSON
 {
     "solution-time": "0.078 s",
     "solution-mode": "regular",
@@ -77,7 +77,8 @@ In this case, the API responds with:
         " ,7, , , ,4, , , ",
         "5,1, , ,3,2, , ,9"
     ]
-}```
+}
+```
 
 As you can see from the response above, every number from 1 to 9 occurs only once in every column, row and block.
 
@@ -86,7 +87,8 @@ Solving the NRC sudoku takes slightly more time, but is orders of magnitude fast
 
 ![NRC Sudoku 9 juni 2023](images/nrc-sudoku-20230609.png)
 
-```json
+
+```JSON
 {
     "solution-time": "0.426 s",
     "solution-mode": "nrc",
@@ -116,9 +118,10 @@ Solving the NRC sudoku takes slightly more time, but is orders of magnitude fast
         " , , ,4, , ,6,8, ",
         " , ,4, , , , ,5, "
     ]
-}```
+}
+```
 
 Happy Sudoku-ing!
 
-## Next Step:
+## Next Step
 As a next step, I might consider building and publishing a new Docker image upon committing the code to Github, using Github Actions.
