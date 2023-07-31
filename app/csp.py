@@ -74,7 +74,9 @@ class CSP(Generic[Variable, Domain]):
         self, assignment: Dict[Variable, Domain] = None
     ) -> Optional[Dict[Variable, Domain]]:
         """assignment is complete if every variable is assigned (our base case)"""
-        assignment = {} if assignment is None else assignment       # don't use mutable ds as parameter default
+        assignment = (
+            {} if assignment is None else assignment
+        )  # don't use mutable ds as parameter default
         if len(assignment) == len(self.variables):
             return assignment
 

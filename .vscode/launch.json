@@ -9,6 +9,7 @@
             "type": "python",
             "request": "launch",
             "module": "uvicorn",
+            "cwd": "${fileDirname}"
             "args": [
                 "main:app",
                 "--reload"

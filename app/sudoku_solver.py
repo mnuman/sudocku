@@ -1,8 +1,6 @@
 """
 Solve the sudoku!
 """
-from typing import Optional
-import time
 from csp import Constraint, CSP
 
 
@@ -57,6 +55,10 @@ class Sudoku:
         self._mode = mode
 
     def __str__(self):
+        """As its string representation, concatenate all rows from the format."""
+        return "\n".join(self.format())
+
+    def format(self):
         """Provide a displayable representation of the sudoku"""
         s = [
             "".join([str(c) if c is not None else "-" for c in r]) for r in self.sudoku
@@ -67,8 +69,8 @@ class Sudoku:
         s.insert(6, "|---+---+---|")
         s.insert(3, "|---+---+---|")
         s.insert(0, "|-----------|")
-        return "\n".join(s)
-
+        return s
+    
     def generate_variables(self) -> None:
         """The variables are the cells that need to be filled, so
         each row/column combination
@@ -163,3 +165,6 @@ class Sudoku:
             for (r, c), value in solution.items():
                 self.sudoku[r][c] = value
 
+    @property
+    def solution_found(self) -> bool:
+        return all([cell is not None for row in self.sudoku for cell in row])
