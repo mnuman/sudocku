@@ -70,7 +70,7 @@ class Sudoku:
         s.insert(3, "|---+---+---|")
         s.insert(0, "|-----------|")
         return s
-    
+
     def generate_variables(self) -> None:
         """The variables are the cells that need to be filled, so
         each row/column combination

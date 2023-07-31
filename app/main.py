@@ -15,10 +15,7 @@ app = FastAPI(
     description="""Dockerized sudoku solver""",
     summary="Solve sudokus. Rule the world.",
     version="0.0.1",
-    contact={
-        "name": "Milco Numan",
-        "url": "https://github.com/mnuman/sudocku/"
-    },
+    contact={"name": "Milco Numan", "url": "https://github.com/mnuman/sudocku/"},
 )
 
 
@@ -38,7 +35,7 @@ class SudokuInput(BaseModel):
                         " , , , , , ,3,8, ",
                         " , , ,8, , , , , ",
                         " ,7, , , ,4, , , ",
-                        "5,1, , ,3,2, , ,9"
+                        "5,1, , ,3,2, , ,9",
                     ]
                 }
             ]
@@ -47,9 +44,9 @@ class SudokuInput(BaseModel):
 
 
 class SudokuNormalResponse(BaseModel):
-    solution_time: str = Field(alias='solution-time')
-    solution_mode: Literal["regular", "nrc"] = Field(alias='solution-mode')
-    formatted_solution: List[str] = Field(alias='formatted-solution')
+    solution_time: str = Field(alias="solution-time")
+    solution_mode: Literal["regular", "nrc"] = Field(alias="solution-mode")
+    formatted_solution: List[str] = Field(alias="formatted-solution")
     input: List[str]
     model_config = {
         "json_schema_extra": {
@@ -70,7 +67,7 @@ class SudokuNormalResponse(BaseModel):
                         "|632|879|514|",
                         "|879|514|632|",
                         "|514|632|879|",
-                        "|-----------|"
+                        "|-----------|",
                     ],
                     "input": [
                         " ,9, , , , ,1, , ",
@@ -81,20 +78,28 @@ class SudokuNormalResponse(BaseModel):
                         " , , , , , ,3,8, ",
                         " , , ,8, , , , , ",
                         " ,7, , , ,4, , , ",
-                        "5,1, , ,3,2, , ,9"
-                    ]
+                        "5,1, , ,3,2, , ,9",
+                    ],
                 },
-                {"detail": "Invalid (non-square) sudoku"}
+                {"detail": "Invalid (non-square) sudoku"},
             ]
         }
     }
 
 
-@app.post(path="/sudoku-nrc", response_model=SudokuNormalResponse, description="Solve NRC-style sudoku with four additional blocks")
+@app.post(
+    path="/sudoku-nrc",
+    response_model=SudokuNormalResponse,
+    description="Solve NRC-style sudoku with four additional blocks",
+)
 def sudoku_nrc(input_sudoku: SudokuInput):
     return __solve__(input_sudoku, mode="nrc")
 
-@app.post(path="/sudoku", description="Solve regular sudoku, just the normal blocks, rows and columns ...")
+
+@app.post(
+    path="/sudoku",
+    description="Solve regular sudoku, just the normal blocks, rows and columns ...",
+)
 def sudoku(input_sudoku: SudokuInput):
     return __solve__(input_sudoku, mode=None)
 
@@ -113,19 +118,22 @@ def __solve__(input_sudoku, mode):
             "solution-time": f"{time() - start_time:5.3f} s",
             "solution-mode": "regular" if mode is None else mode,
             "formatted-solution": sudoku_to_solve.format(),
-            "input": input_sudoku.sudoku
+            "input": input_sudoku.sudoku,
         }
     else:
         return {
-            "status" : "No solution could be found for the input sudoku - are you sure it is correct?",
+            "status":
+                "No solution could be found for the input sudoku - "
+                "are you sure it is correct?",
             "solution-mode": "regular" if mode is None else mode,
-            "input": input_sudoku.sudoku
+            "input": input_sudoku.sudoku,
         }
+
 
 def input_helper(sudoku: List[str]) -> list[list[Optional[int]]]:
     """Parse the provided input (array of strings from the JSON object) into a list
-       of lists, where each element is either unknown (None) or the provided numeric
-       value (1-9).
+    of lists, where each element is either unknown (None) or the provided numeric
+    value (1-9).
     """
     return [
         [int(i) if i.strip() != "" else None for i in line.strip().split(",")]
