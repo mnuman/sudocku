@@ -10,3 +10,4 @@ RUN set -ex \
     && pip install -r requirements.txt --no-cache-dir
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
 USER appuser
+EXPOSE 8080
