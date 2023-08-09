@@ -32,6 +32,7 @@ class SudokuConstraint(Constraint[tuple[int, int], tuple[int, int]]):
 class Sudoku:
     """Main class representing the Sudoku puzzle to be solved. It does
     contain the CSP in order to solve itself.
+    Implementation note: the Python indexes are - of course - zero-based!
     """
 
     sudoku: list[list[int]]

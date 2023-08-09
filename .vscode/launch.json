@@ -9,9 +9,11 @@
             "type": "python",
             "request": "launch",
             "module": "uvicorn",
-            "cwd": "${fileDirname}"
+            "cwd": "${workspaceFolder}/app",
             "args": [
                 "main:app",
+                "--port",
+                "8080",
                 "--reload"
             ],
             "jinja": true,
