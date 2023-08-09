@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "807016f6-a659-48d5-9a39-7749903cc8a2",
+		"_postman_id": "f2869023-c16e-461c-bef6-104991a6182c",
 		"name": "Sudocku",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "687059"
+		"_exporter_id": "687059",
+		"_collection_link": "https://www.postman.com/warped-capsule-279442/workspace/sudocku/collection/687059-f2869023-c16e-461c-bef6-104991a6182c?action=share&creator=687059&source=collection_link"
 	},
 	"item": [
 		{
@@ -32,58 +33,35 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Response",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"sudoku\": [\r\n        \" ,9, , , , ,1, , \",\r\n        \"7, ,8,1, , , , ,3\",\r\n        \" ,4,5, ,9, , , , \",\r\n        \" , ,7, ,8, , ,5, \",\r\n        \" , ,6,4, , , ,2,7\",\r\n        \" , , , , , ,3,8, \",\r\n        \" , , ,8, , , , , \",\r\n        \" ,7, , , ,4, , , \",\r\n        \"5,1, , ,3,2, , ,9\"\r\n    ]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/sudoku",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"sudoku"
-							]
+			"response": []
+		},
+		{
+			"name": "Regular sudocku #1 - dictionary input",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"sudoku\": { \r\n        \"12\": 9, \"17\": 1, \"21\": 7, \"23\": 8, \"24\": 1, \"29\": 3, \"32\": 4, \"33\": 5, \"35\": 9, \r\n        \"43\": 7, \"45\": 8, \"48\": 5, \"53\": 6, \"54\": 4, \"58\": 2, \"59\": 7, \"67\": 3, \"68\": 8, \r\n        \"74\": 8, \"82\": 7, \"86\": 4, \"91\": 5, \"92\": 1, \"95\": 3, \"96\": 2, \"99\": 9\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "date",
-							"value": "Mon, 31 Jul 2023 13:24:12 GMT"
-						},
-						{
-							"key": "server",
-							"value": "uvicorn"
-						},
-						{
-							"key": "content-length",
-							"value": "474"
-						},
-						{
-							"key": "content-type",
-							"value": "application/json"
-						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/sudoku",
+					"protocol": "http",
+					"host": [
+						"localhost"
 					],
-					"cookie": [],
-					"body": "{\n    \"solution-time\": \"0.125 s\",\n    \"solution-mode\": \"regular\",\n    \"formatted-solution\": [\n        \"|-----------|\",\n        \"|293|768|145|\",\n        \"|768|145|293|\",\n        \"|145|293|768|\",\n        \"|---+---+---|\",\n        \"|927|386|451|\",\n        \"|386|451|927|\",\n        \"|451|927|386|\",\n        \"|---+---+---|\",\n        \"|632|879|514|\",\n        \"|879|514|632|\",\n        \"|514|632|879|\",\n        \"|-----------|\"\n    ],\n    \"input\": [\n        \" ,9, , , , ,1, , \",\n        \"7, ,8,1, , , , ,3\",\n        \" ,4,5, ,9, , , , \",\n        \" , ,7, ,8, , ,5, \",\n        \" , ,6,4, , , ,2,7\",\n        \" , , , , , ,3,8, \",\n        \" , , ,8, , , , , \",\n        \" ,7, , , ,4, , , \",\n        \"5,1, , ,3,2, , ,9\"\n    ]\n}"
+					"port": "8080",
+					"path": [
+						"sudoku"
+					]
 				}
-			]
+			},
+			"response": []
 		},
 		{
 			"name": "Invalid Sudoku",
@@ -111,58 +89,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Response",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"sudoku\": [\r\n        \" ,9, , , , ,1, , \",\r\n        \"7, ,8,1, , , , ,3\",\r\n        \" ,4,5, ,9, , , , \",\r\n        \" , ,7, ,8, , ,5, \",\r\n        \" , ,6,4, , , ,2,7\",\r\n        \" , , , , , ,3,8, \",\r\n        \" , , ,8, , , , , \",\r\n        \" ,7, , , ,4, , , \",\r\n        \"1, , ,3,2, , ,9\"\r\n    ]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/sudoku",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"sudoku"
-							]
-						}
-					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "date",
-							"value": "Mon, 31 Jul 2023 13:25:37 GMT"
-						},
-						{
-							"key": "server",
-							"value": "uvicorn"
-						},
-						{
-							"key": "content-length",
-							"value": "40"
-						},
-						{
-							"key": "content-type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"detail\": \"Invalid (non-square) sudoku\"\n}"
-				}
-			]
+			"response": []
 		},
 		{
 			"name": "Regular sudocku #2 - Parool, 29-07-2023",
@@ -190,58 +117,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Response",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"sudoku\": [\r\n        \" ,4, , ,1,6,5, , \",\r\n        \"5, , , , , , , , \",\r\n        \" , ,8, , ,7, ,6, \",\r\n        \"6,3, , , , , , ,2\",\r\n        \" , , , , , , , , \",\r\n        \"4,5,9, , , , , , \",\r\n        \" , , , ,5, ,1, ,3\",\r\n        \" ,8, ,7, , ,9,2,4\",\r\n        \" , , ,9, ,4, ,8, \"\r\n    ]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/sudoku",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"sudoku"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "date",
-							"value": "Mon, 31 Jul 2023 13:23:04 GMT"
-						},
-						{
-							"key": "server",
-							"value": "uvicorn"
-						},
-						{
-							"key": "content-length",
-							"value": "474"
-						},
-						{
-							"key": "content-type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"solution-time\": \"1.266 s\",\n    \"solution-mode\": \"regular\",\n    \"formatted-solution\": [\n        \"|-----------|\",\n        \"|743|216|598|\",\n        \"|516|389|247|\",\n        \"|298|547|361|\",\n        \"|---+---+---|\",\n        \"|637|495|812|\",\n        \"|821|673|459|\",\n        \"|459|128|736|\",\n        \"|---+---+---|\",\n        \"|964|852|173|\",\n        \"|385|761|924|\",\n        \"|172|934|685|\",\n        \"|-----------|\"\n    ],\n    \"input\": [\n        \" ,4, , ,1,6,5, , \",\n        \"5, , , , , , , , \",\n        \" , ,8, , ,7, ,6, \",\n        \"6,3, , , , , , ,2\",\n        \" , , , , , , , , \",\n        \"4,5,9, , , , , , \",\n        \" , , , ,5, ,1, ,3\",\n        \" ,8, ,7, , ,9,2,4\",\n        \" , , ,9, ,4, ,8, \"\n    ]\n}"
-				}
-			]
+			"response": []
 		},
 		{
 			"name": "NRC sudocku - NRC, 09-06-2023",
@@ -258,69 +134,24 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/sudoku-nrc",
+					"raw": "http://localhost:8080/sudoku?mode=nrc",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"sudoku-nrc"
+						"sudoku"
+					],
+					"query": [
+						{
+							"key": "mode",
+							"value": "nrc"
+						}
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Response",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"sudoku\": [\r\n        \" , , , , ,1, , , \",\r\n        \" , , ,6, , , ,2, \",\r\n        \" ,3,8, , , , , ,4\",\r\n        \" , ,7,9, , , , , \",\r\n        \" , , ,5, , , , , \",\r\n        \" , ,9, ,8, , , ,6\",\r\n        \"2, ,5, ,3, ,9, , \",\r\n        \" , , ,4, , ,6,8, \",\r\n        \" , ,4, , , , ,5, \"\r\n    ]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/sudoku-nrc",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"sudoku-nrc"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "date",
-							"value": "Mon, 31 Jul 2023 13:24:22 GMT"
-						},
-						{
-							"key": "server",
-							"value": "uvicorn"
-						},
-						{
-							"key": "content-length",
-							"value": "470"
-						},
-						{
-							"key": "content-type",
-							"value": "application/json"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"solution-time\": \"0.644 s\",\n    \"solution-mode\": \"nrc\",\n    \"formatted-solution\": [\n        \"|-----------|\",\n        \"|792|341|865|\",\n        \"|541|698|723|\",\n        \"|638|275|194|\",\n        \"|---+---+---|\",\n        \"|157|926|438|\",\n        \"|386|514|279|\",\n        \"|429|783|516|\",\n        \"|---+---+---|\",\n        \"|265|837|941|\",\n        \"|913|452|687|\",\n        \"|874|169|352|\",\n        \"|-----------|\"\n    ],\n    \"input\": [\n        \" , , , , ,1, , , \",\n        \" , , ,6, , , ,2, \",\n        \" ,3,8, , , , , ,4\",\n        \" , ,7,9, , , , , \",\n        \" , , ,5, , , , , \",\n        \" , ,9, ,8, , , ,6\",\n        \"2, ,5, ,3, ,9, , \",\n        \" , , ,4, , ,6,8, \",\n        \" , ,4, , , , ,5, \"\n    ]\n}"
-				}
-			]
+			"response": []
 		}
 	]
 }
