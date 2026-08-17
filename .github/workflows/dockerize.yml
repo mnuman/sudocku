@@ -1,5 +1,6 @@
 name: Github action flow to create and push a docker image upon committing to the master branch
-
+permissions:
+  contents: read
 on:
   push:
     branches: [ "master" ]
